@@ -1,0 +1,43 @@
+﻿<mah:MetroWindow x:Class="ImageCutter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageCutter"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Image cutter"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <StackPanel>
+                <Label Content="Width"/>
+                <mah:NumericUpDown ChangeValueOnTextChanged="True" ValueChanged="CuttingParametersChanged" Name="cuttedWidth" mah:TextBoxHelper.Watermark="Width"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Height"/>
+                <mah:NumericUpDown ChangeValueOnTextChanged="True" ValueChanged="CuttingParametersChanged" Name="cuttedHeight" mah:TextBoxHelper.Watermark="Height"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Width offset"/>
+                <mah:NumericUpDown ChangeValueOnTextChanged="True" ValueChanged="CuttingParametersChanged" Value="0" Name="widthOffset" mah:TextBoxHelper.Watermark="Width offset"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Height offset"/>
+                <mah:NumericUpDown ChangeValueOnTextChanged="True" ValueChanged="CuttingParametersChanged" Value="0" Name="heightOffset" mah:TextBoxHelper.Watermark="Height offset"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Result name"/>
+                <TextBox MinWidth="100" mah:TextBoxHelper.Watermark="Result name" Name="resultName"/>
+            </StackPanel>
+            <Button Content="Next horizontal" Click="NextHorizontal"/>
+            <Button Content="Next vertical" Click="NextVertical"/>
+            <mah:ToggleSwitch Content="Save?" Name="save"/>
+        </WrapPanel>
+        <Image Grid.Row="1" Name="preview" Stretch="Fill"/>
+    </Grid>
+</mah:MetroWindow>
